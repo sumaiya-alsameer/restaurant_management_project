@@ -13,5 +13,8 @@ class Order(models.Model):
     
     status=models.ForeignKey(OrderStatus,on_delete=models.SET_NULL,null=True,blank=True)
     
+
+    coupon_code = models.CharField(max_length=20, unique=True, null=True, blank=True)
+    
     def __str__(self):
         return f"Order {self.id} - {self.customer_name}"
